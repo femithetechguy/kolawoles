@@ -12,6 +12,23 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
   <!-- Source Sans Pro font -->
   <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    html, body {
+      height: 100%;
+    }
+    body {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    main {
+      flex: 1;
+    }
+    .footer {
+      width: 100%;
+      margin-top: auto;
+    }
+  </style>
 </head>
 <body>
   <header class="header">
@@ -20,7 +37,7 @@
   <main class="container mx-auto py-8">
     <!-- Cards will be dynamically populated by card.js -->
   </main>
-  <footer class="text-center py-4 text-sm text-gray-500">
+  <footer class="footer text-center py-6 text-base font-semibold" style="background:#F85C70;color:#fff;box-shadow:0 -2px 12px rgba(33,37,41,0.08);">
     &copy; <span id="year"></span> Kolawoles. All rights reserved.
   </footer>
   <script src="js/card.js"></script>
