@@ -1,0 +1,54 @@
+/* Global Styles for Kolawoles.com */
+:root {
+	--color-bg: #FFFFFF;
+	--color-accent: #F85C70;
+	--color-text: #212529;
+	--color-secondary: #FDFDFE;
+	--font-primary: 'Source Sans Pro', Sans-serif;
+}
+body {
+	background: var(--color-bg);
+	color: var(--color-text);
+	font-family: var(--font-primary);
+	margin: 0;
+	padding: 0;
+	min-height: 100vh;
+	box-sizing: border-box;
+}
+.header {
+	background: var(--color-accent);
+	color: var(--color-bg);
+	padding: 1rem 2rem;
+	text-align: center;
+}
+.section {
+	background: var(--color-secondary);
+	margin: 2rem auto;
+	border-radius: 1rem;
+	box-shadow: 0 2px 8px rgba(33,37,41,0.05);
+	max-width: 600px;
+	padding: 2rem;
+}
+.link {
+	color: var(--color-accent);
+	text-decoration: none;
+	font-weight: 600;
+	transition: color 0.2s;
+}
+.link:hover {
+	color: var(--color-text);
+}
+.icon {
+	font-size: 2rem;
+	vertical-align: middle;
+	margin-right: 0.5rem;
+}
+@media (max-width: 600px) {
+	.section {
+		padding: 1rem;
+		max-width: 95vw;
+	}
+	.header {
+		padding: 1rem;
+	}
+}
