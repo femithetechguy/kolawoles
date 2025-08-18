@@ -16,6 +16,14 @@ fetch('app.json')
           <p>${section.description}</p>
           <a class="link" href="${section.url}" target="_blank">Visit</a>
         `;
+        // Make the whole card clickable
+        card.style.cursor = 'pointer';
+        card.addEventListener('click', (e) => {
+          // Prevent link click from firing twice
+          if (!e.target.classList.contains('link')) {
+            window.open(section.url, '_blank');
+          }
+        });
         container.appendChild(card);
       });
       main.appendChild(container);
