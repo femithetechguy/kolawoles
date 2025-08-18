@@ -1,0 +1,7 @@
+{
+  "items": [
+    { "icon": "bi-bar-chart", "label": "Data Analytics" },
+    { "type": "divider" },
+    { "icon": "bi-code-slash", "label": "Software Development" }
+  ]
+}
