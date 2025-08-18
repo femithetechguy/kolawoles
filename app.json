@@ -1,0 +1,37 @@
+{
+  "site": {
+    "name": "Kolawoles.com",
+    "description": "Parent portfolio site for Kolawoles, allowing users to choose which aspect of my career to view.",
+    "font": {
+      "primary": "Source Sans Pro, Sans-serif"
+    },
+    "colors": {
+      "background": "#FFFFFF",
+      "accent": "#F85C70",
+      "text": "#212529",
+      "secondary": "#FDFDFE"
+    },
+    "sections": [
+      {
+        "title": "Data Analytics Portfolio",
+        "url": "https://data.kolawoles.com/",
+        "icon": "bi-bar-chart",
+        "description": "Get to know me from Data Analytics standpoint."
+      },
+      {
+        "title": "Development Portfolio",
+        "url": "http://dev.kolawoles.com/",
+        "icon": "bi-code-slash",
+        "description": "Get to know me from Software Development standpoint."
+      }
+    ],
+    "features": {
+      "modular": true,
+      "responsive": true,
+      "simple": true,
+      "precise": true
+    },
+    "icons": "Bootstrap Icons",
+    "styles": "Tailwind CSS"
+  }
+}
