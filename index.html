@@ -6,6 +6,7 @@
   <title>Kolawoles.com</title>
   <link rel="stylesheet" href="css/styles.css">
   <link rel="stylesheet" href="css/card.css">
+  <link rel="stylesheet" href="css/header.css">
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
   <!-- Bootstrap Icons CDN -->
@@ -32,7 +33,11 @@
 </head>
 <body>
   <header class="header">
-    Kolawoles.com
+    <div class="header-animate">
+      <div class="header-track">
+        <!-- Header content will be dynamically populated by header.js -->
+      </div>
+    </div>
   </header>
   <main class="container mx-auto py-8">
     <!-- Cards will be dynamically populated by card.js -->
@@ -40,6 +45,7 @@
   <footer class="footer text-center py-6 text-base font-semibold" style="background:#F85C70;color:#fff;box-shadow:0 -2px 12px rgba(33,37,41,0.08);">
     &copy; <span id="year"></span> Kolawoles. All rights reserved.
   </footer>
+  <script src="js/header.js"></script>
   <script src="js/card.js"></script>
   <script>
     // Set current year in footer
