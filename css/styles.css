@@ -29,8 +29,9 @@ body {
 main {
 	flex: 1;
 	width: 100%;
-	overflow-y: auto; /* Allow scrolling within main content area */
+	overflow-y: visible; /* Don't use scrollable container */
 	-webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+	padding: 0; /* Remove default padding */
 }
 .footer {
 	width: 100%;
@@ -39,14 +40,16 @@ main {
 	color: #fff;
 	box-shadow: 0 -2px 12px rgba(33,37,41,0.08);
 	text-align: center;
-	padding: 1.5rem 0;
+	padding: 0.75rem 0; /* Reduced padding */
 	font-weight: 600;
+	font-size: 0.9rem; /* Smaller text */
 }
 .header {
 	background: var(--color-accent);
 	color: var(--color-bg);
 	padding: 1rem 2rem;
 	text-align: center;
+	min-height: auto; /* Allow header to shrink */
 }
 .section {
 	background: var(--color-secondary);
@@ -77,9 +80,10 @@ main {
 		margin: 1rem auto; /* Reduce vertical margins on mobile */
 	}
 	.header {
-		padding: 1rem;
+		padding: 0.5rem;
 	}
 	.footer {
-		padding: 1rem 0; /* Reduce footer padding on mobile */
+		padding: 0.5rem 0; /* Further reduce footer padding on mobile */
+		font-size: 0.8rem; /* Even smaller text on mobile */
 	}
 }
