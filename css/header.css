@@ -26,13 +26,13 @@
     margin: 0 auto;
   }
 .header-icon {
-  font-size: 1.5rem;
+  font-size: 1.8rem;
   color: var(--color-bg);
   background: var(--color-accent);
   border-radius: 50%;
-  padding: 0.4rem;
+  padding: 0.45rem;
   box-shadow: 0 2px 8px rgba(33,37,41,0.10);
-  margin: 0.25rem;
+  margin: 0.3rem;
   border: 1px solid rgba(255, 255, 255, 0.3);
 }
 .header-label {
@@ -49,16 +49,16 @@
 @media (max-width: 700px) {
   .header-animate {
     gap: 0;
-    padding: 0.1rem;
+    padding: 0.15rem;
   }
   .header-track {
-    gap: 2px;
+    gap: 3px;
     flex-direction: row;
   }
   .header-icon {
-    font-size: 1rem; /* Smaller icons on mobile */
-    padding: 0.15rem;
-    margin: 0.1rem;
+    font-size: 1.25rem; /* Larger icons on mobile */
+    padding: 0.2rem;
+    margin: 0.15rem;
     border: none;
   }
   .header-label {
