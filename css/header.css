@@ -55,26 +55,27 @@
 }
 @media (max-width: 700px) {
   .header-animate {
-    flex-direction: column;
-    gap: 1rem;
-    padding: 0.5rem; /* Add some padding */
-    max-height: 100px; /* Limit height on mobile */
-    overflow: hidden; /* Ensure content doesn't overflow */
+    flex-direction: row; /* Keep it in a single row */
+    gap: 0.5rem;
+    padding: 0.25rem; /* Minimal padding */
+    max-height: 60px; /* Smaller height on mobile */
+    overflow: hidden;
   }
   .header-track {
-    gap: 0.75rem; /* Reduce gap on mobile */
-    transform-origin: center center; /* Center the animation */
+    gap: 0.5rem; /* Smaller gap on mobile */
+    transform-origin: center center;
   }
   .header-icon {
-    font-size: 1.5rem; /* Smaller icons on mobile */
-    padding: 0.3rem; /* Less padding */
+    font-size: 1.25rem; /* Even smaller icons on mobile */
+    padding: 0.2rem; /* Less padding */
   }
   .header-label {
-    font-size: 0.9rem; /* Smaller text on mobile */
-    padding: 0.2rem 0.7rem; /* Less padding */
+    font-size: 0.8rem; /* Smaller text on mobile */
+    padding: 0.15rem 0.5rem; /* Minimal padding */
   }
   .header-divider {
-    height: 2rem; /* Shorter divider */
-    margin: 0 0.5rem; /* Less margin */
+    height: 1.5rem; /* Shorter divider */
+    margin: 0 0.25rem; /* Less margin */
+    width: 1px; /* Thinner divider */
   }
 }
