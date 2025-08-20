@@ -6,22 +6,52 @@ fetch('json/header_content.json')
     if (headerTrack && Array.isArray(data.items)) {
       headerTrack.innerHTML = '';
       
-      // Add content statically and centered
-      data.items.forEach((item, idx) => {
-        if (item.type === 'divider') {
-          const divider = document.createElement('span');
-          divider.className = 'header-divider';
-          headerTrack.appendChild(divider);
-        } else {
-          const icon = document.createElement('span');
-          icon.className = `header-icon bi ${item.icon || ''}`;
-          headerTrack.appendChild(icon);
-          const label = document.createElement('span');
-          label.className = 'header-label';
-          label.textContent = item.label || '';
-          headerTrack.appendChild(label);
-        }
+      // Add responsive handler for orientation changes
+      window.addEventListener('resize', () => {
+        updateHeaderContent(data, headerTrack);
       });
+      
+      // Function to update header content based on screen size
+      function updateHeaderContent(data, headerTrack) {
+        headerTrack.innerHTML = ''; // Clear existing content
+        const isMobile = window.innerWidth <= 700;
+        
+        if (isMobile) {
+          // On mobile, just show the icons side by side
+          data.items.forEach((item) => {
+            if (item.type === 'divider') {
+              const divider = document.createElement('span');
+              divider.className = 'header-divider';
+              headerTrack.appendChild(divider);
+            } else {
+              const icon = document.createElement('span');
+              icon.className = `header-icon bi ${item.icon || ''}`;
+              icon.setAttribute('title', item.label || ''); // Add tooltip
+              headerTrack.appendChild(icon);
+            }
+          });
+        } else {
+          // On desktop, show icons and labels
+          data.items.forEach((item) => {
+            if (item.type === 'divider') {
+              const divider = document.createElement('span');
+              divider.className = 'header-divider';
+              headerTrack.appendChild(divider);
+            } else {
+              const icon = document.createElement('span');
+              icon.className = `header-icon bi ${item.icon || ''}`;
+              headerTrack.appendChild(icon);
+              const label = document.createElement('span');
+              label.className = 'header-label';
+              label.textContent = item.label || '';
+              headerTrack.appendChild(label);
+            }
+          });
+        }
+      }
+      
+      // Initialize header content
+      updateHeaderContent(data, headerTrack);
       // Animation: Randomly display a topic from either aspect at a random location in the body, never covering a card
       function getRandomInt(min, max) {
         return Math.floor(Math.random() * (max - min + 1)) + min;
@@ -49,9 +79,8 @@ fetch('json/header_content.json')
         topicDisplay.style.padding = '0.3rem 1.2rem';
         topicDisplay.style.boxShadow = '0 2px 8px rgba(33,37,41,0.10)';
         topicDisplay.style.pointerEvents = 'none';
-        // Smaller font size on mobile
-        const isMobile = window.innerWidth <= 600;
-        topicDisplay.style.fontSize = isMobile ? '1.5rem' : '2.2rem';
+        // Only show on larger screens with appropriate sizing
+        topicDisplay.style.fontSize = '1.4rem';
         topicDisplay.textContent = topic;
         // Get viewport dimensions
         const vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0);
@@ -127,15 +156,19 @@ fetch('json/header_content.json')
           }
         }
       }
-      // Start the random topics animation with a small delay
-      setTimeout(() => {
-        pickRandomTopicAnywhere();
-        setInterval(() => {
-          document.querySelectorAll('.header-topic-label').forEach(el => el.remove());
-          setTimeout(() => {
-            pickRandomTopicAnywhere();
-          }, 600); // Hide for 0.6s before showing next
-        }, 2200); // Change topic every 2.2s
-      }, 1000); // Start after 1 second
+      // Only show random topics on larger screens
+      if (window.innerWidth > 700) {
+        setTimeout(() => {
+          pickRandomTopicAnywhere();
+          setInterval(() => {
+            document.querySelectorAll('.header-topic-label').forEach(el => el.remove());
+            setTimeout(() => {
+              if (window.innerWidth > 700) { // Check again in case of resize
+                pickRandomTopicAnywhere();
+              }
+            }, 600); // Hide for 0.6s before showing next
+          }, 2200); // Change topic every 2.2s
+        }, 1000); // Start after 1 second
+      }
     }
   });

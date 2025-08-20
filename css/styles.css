@@ -47,7 +47,7 @@ main {
 .header {
 	background: var(--color-accent);
 	color: var(--color-bg);
-	padding: 1.5rem 1rem;
+	padding: 0.75rem 0.5rem;
 	text-align: center;
 	min-height: auto; /* Allow header to shrink */
 }
@@ -80,7 +80,7 @@ main {
 		margin: 1rem auto; /* Reduce vertical margins on mobile */
 	}
 	.header {
-		padding: 0.5rem;
+		padding: 0.25rem;
 	}
 	.footer {
 		padding: 0.5rem 0; /* Further reduce footer padding on mobile */

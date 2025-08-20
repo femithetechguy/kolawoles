@@ -16,13 +16,13 @@
         "title": "Data Analytics Portfolio",
         "url": "https://data.kolawoles.com/",
         "icon": "bi-bar-chart",
-        "description": "Get to know me from Data Analytics standpoint."
+        "description": "Data Analytics."
       },
       {
         "title": "Development Portfolio",
         "url": "http://dev.kolawoles.com/",
         "icon": "bi-code-slash",
-        "description": "Get to know me from Software Development standpoint."
+        "description": "Software Development."
       }
     ],
     "features": {
