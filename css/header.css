@@ -1,12 +1,12 @@
-/* Header animation styles */
+/* Header styles */
 .header-animate {
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 2rem;
-  overflow: hidden;
   position: relative;
   flex-wrap: wrap;
+  padding: 0.5rem;
 }
 .header-divider {
   width: 2px;
@@ -19,63 +19,54 @@
   .header-track {
     display: flex;
     align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
     gap: 20px;
     position: relative;
-    white-space: nowrap;
-    transition: transform 0.5s ease;
-    width: max-content;
-    left: 50%;
-    transform: translateX(-50%);
-  }
-  
-  .start-animation {
-    animation: scroll-track 30s linear infinite;
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
   }
 .header-icon {
-  font-size: 2rem;
+  font-size: 2.2rem;
   color: var(--color-bg);
   background: var(--color-accent);
   border-radius: 50%;
-  padding: 0.5rem;
+  padding: 0.7rem;
   box-shadow: 0 2px 8px rgba(33,37,41,0.10);
+  margin: 0.5rem;
+  border: 2px solid rgba(255, 255, 255, 0.3);
 }
 .header-label {
-  font-size: 1.1rem;
+  font-size: 1.25rem;
   font-weight: 600;
   color: var(--color-bg);
   background: var(--color-text);
   border-radius: 0.5rem;
-  padding: 0.3rem 1rem;
+  padding: 0.5rem 1.2rem;
   box-shadow: 0 2px 8px rgba(33,37,41,0.10);
   white-space: nowrap;
-}
-@keyframes scroll-track {
-  0% { transform: translateX(-50%); }
-  100% { transform: translateX(-150%); }
+  margin: 0 0.5rem;
 }
 @media (max-width: 700px) {
   .header-animate {
-    flex-direction: row; /* Keep it in a single row */
-    gap: 0.5rem;
-    padding: 0.25rem; /* Minimal padding */
-    max-height: 60px; /* Smaller height on mobile */
-    overflow: hidden;
+    gap: 0.75rem;
+    padding: 0.5rem;
   }
   .header-track {
-    gap: 0.5rem; /* Smaller gap on mobile */
-    transform-origin: center center;
+    gap: 0.75rem;
   }
   .header-icon {
-    font-size: 1.25rem; /* Even smaller icons on mobile */
-    padding: 0.2rem; /* Less padding */
+    font-size: 1.25rem; /* Smaller icons on mobile */
+    padding: 0.2rem;
   }
   .header-label {
     font-size: 0.8rem; /* Smaller text on mobile */
-    padding: 0.15rem 0.5rem; /* Minimal padding */
+    padding: 0.15rem 0.5rem;
   }
   .header-divider {
     height: 1.5rem; /* Shorter divider */
-    margin: 0 0.25rem; /* Less margin */
-    width: 1px; /* Thinner divider */
+    margin: 0 0.5rem;
+    width: 1px;
   }
 }
