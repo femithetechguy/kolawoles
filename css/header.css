@@ -16,14 +16,21 @@
   margin: 0 1rem;
   border-radius: 1px;
 }
-.header-track {
-  display: flex;
-  align-items: center;
-  gap: 1.5rem;
-  animation: slide-horizontal 18s linear infinite;
-  z-index: 1;
-  will-change: transform;
-}
+  .header-track {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    position: relative;
+    white-space: nowrap;
+    transition: transform 0.5s ease;
+    width: max-content;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  
+  .start-animation {
+    animation: scroll-track 30s linear infinite;
+  }
 .header-icon {
   font-size: 2rem;
   color: var(--color-bg);
@@ -42,16 +49,32 @@
   box-shadow: 0 2px 8px rgba(33,37,41,0.10);
   white-space: nowrap;
 }
-@keyframes slide-horizontal {
-  0% { transform: translateX(100%); }
-  100% { transform: translateX(-100%); }
+@keyframes scroll-track {
+  0% { transform: translateX(-50%); }
+  100% { transform: translateX(-150%); }
 }
 @media (max-width: 700px) {
   .header-animate {
     flex-direction: column;
     gap: 1rem;
+    padding: 0.5rem; /* Add some padding */
+    max-height: 100px; /* Limit height on mobile */
+    overflow: hidden; /* Ensure content doesn't overflow */
   }
   .header-track {
-    gap: 1rem;
+    gap: 0.75rem; /* Reduce gap on mobile */
+    transform-origin: center center; /* Center the animation */
+  }
+  .header-icon {
+    font-size: 1.5rem; /* Smaller icons on mobile */
+    padding: 0.3rem; /* Less padding */
+  }
+  .header-label {
+    font-size: 0.9rem; /* Smaller text on mobile */
+    padding: 0.2rem 0.7rem; /* Less padding */
+  }
+  .header-divider {
+    height: 2rem; /* Shorter divider */
+    margin: 0 0.5rem; /* Less margin */
   }
 }

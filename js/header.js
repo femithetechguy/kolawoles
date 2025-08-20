@@ -5,6 +5,8 @@ fetch('json/header_content.json')
     const headerTrack = document.querySelector('.header-track');
     if (headerTrack && Array.isArray(data.items)) {
       headerTrack.innerHTML = '';
+      
+      // First add content statically and centered
       data.items.forEach((item, idx) => {
         if (item.type === 'divider') {
           const divider = document.createElement('span');
@@ -20,6 +22,11 @@ fetch('json/header_content.json')
           headerTrack.appendChild(label);
         }
       });
+      
+      // After 5 seconds, add the class to start the animation
+      setTimeout(() => {
+        headerTrack.classList.add('start-animation');
+      }, 5000);
       // Animation: Randomly display a topic from either aspect at a random location in the body, never covering a card
       function getRandomInt(min, max) {
         return Math.floor(Math.random() * (max - min + 1)) + min;
@@ -47,7 +54,9 @@ fetch('json/header_content.json')
         topicDisplay.style.padding = '0.3rem 1.2rem';
         topicDisplay.style.boxShadow = '0 2px 8px rgba(33,37,41,0.10)';
         topicDisplay.style.pointerEvents = 'none';
-        topicDisplay.style.fontSize = '2.2rem';
+        // Smaller font size on mobile
+        const isMobile = window.innerWidth <= 600;
+        topicDisplay.style.fontSize = isMobile ? '1.5rem' : '2.2rem';
         topicDisplay.textContent = topic;
         // Get viewport dimensions
         const vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0);
@@ -123,7 +132,7 @@ fetch('json/header_content.json')
           }
         }
       }
-      // Wait for cards to be fully loaded before starting animation
+      // Wait longer before starting the random topics animation (after header animation begins)
       setTimeout(() => {
         pickRandomTopicAnywhere();
         setInterval(() => {
@@ -132,6 +141,6 @@ fetch('json/header_content.json')
             pickRandomTopicAnywhere();
           }, 600); // Hide for 0.6s before showing next
         }, 2200); // Change topic every 2.2s
-      }, 1000); // Wait 1s for cards to load
+      }, 7000); // Start 2s after header animation begins
     }
   });

@@ -9,6 +9,9 @@
 html, body {
 	height: 100%;
 }
+html {
+	height: -webkit-fill-available; /* Fix for mobile Safari */
+}
 body {
 	background: var(--color-bg);
 	color: var(--color-text);
@@ -16,12 +19,18 @@ body {
 	margin: 0;
 	padding: 0;
 	min-height: 100vh;
+	height: 100vh; /* Set explicit height for mobile */
+	max-height: -webkit-fill-available; /* Fix for mobile Safari */
 	box-sizing: border-box;
 	display: flex;
 	flex-direction: column;
+	overflow-x: hidden; /* Prevent horizontal scroll */
 }
 main {
 	flex: 1;
+	width: 100%;
+	overflow-y: auto; /* Allow scrolling within main content area */
+	-webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
 }
 .footer {
 	width: 100%;
@@ -65,8 +74,12 @@ main {
 	.section {
 		padding: 1rem;
 		max-width: 95vw;
+		margin: 1rem auto; /* Reduce vertical margins on mobile */
 	}
 	.header {
 		padding: 1rem;
+	}
+	.footer {
+		padding: 1rem 0; /* Reduce footer padding on mobile */
 	}
 }
