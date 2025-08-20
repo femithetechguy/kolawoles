@@ -11,7 +11,7 @@ fetch('app.json')
         const card = document.createElement('div');
         card.className = 'card';
         card.innerHTML = `
-          <span class="icon bi ${section.icon}" style="animation-delay: ${idx * 0.3}s;"></span>
+          <span class="icon bi ${section.icon}"></span>
           <h2>${section.title}</h2>
           <p>${section.description}</p>
           <a class="link" href="${section.url}" target="_blank">Visit</a>
