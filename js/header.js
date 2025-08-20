@@ -6,7 +6,7 @@ fetch('json/header_content.json')
     if (headerTrack && Array.isArray(data.items)) {
       headerTrack.innerHTML = '';
       
-      // First add content statically and centered
+      // Add content statically and centered
       data.items.forEach((item, idx) => {
         if (item.type === 'divider') {
           const divider = document.createElement('span');
@@ -22,11 +22,6 @@ fetch('json/header_content.json')
           headerTrack.appendChild(label);
         }
       });
-      
-      // After 5 seconds, add the class to start the animation
-      setTimeout(() => {
-        headerTrack.classList.add('start-animation');
-      }, 5000);
       // Animation: Randomly display a topic from either aspect at a random location in the body, never covering a card
       function getRandomInt(min, max) {
         return Math.floor(Math.random() * (max - min + 1)) + min;
@@ -132,7 +127,7 @@ fetch('json/header_content.json')
           }
         }
       }
-      // Wait longer before starting the random topics animation (after header animation begins)
+      // Start the random topics animation with a small delay
       setTimeout(() => {
         pickRandomTopicAnywhere();
         setInterval(() => {
@@ -141,6 +136,6 @@ fetch('json/header_content.json')
             pickRandomTopicAnywhere();
           }, 600); // Hide for 0.6s before showing next
         }, 2200); // Change topic every 2.2s
-      }, 7000); // Start 2s after header animation begins
+      }, 1000); // Start after 1 second
     }
   });
