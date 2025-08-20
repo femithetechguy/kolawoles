@@ -19,23 +19,23 @@ body {
 	margin: 0;
 	padding: 0;
 	min-height: 100vh;
-	height: 100vh; /* Set explicit height for mobile */
-	max-height: -webkit-fill-available; /* Fix for mobile Safari */
+	min-height: -webkit-fill-available; /* Use min-height instead of height for mobile Safari */
 	box-sizing: border-box;
 	display: flex;
 	flex-direction: column;
 	overflow-x: hidden; /* Prevent horizontal scroll */
+	overflow-y: hidden; /* Prevent vertical scroll */
 }
 main {
 	flex: 1;
 	width: 100%;
-	overflow-y: visible; /* Don't use scrollable container */
+	overflow-y: auto; /* Make main area scrollable if needed */
 	-webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
 	padding: 0; /* Remove default padding */
+	padding-bottom: env(safe-area-inset-bottom, 0); /* Account for notches/home indicators */
 }
 .footer {
 	width: 100%;
-	margin-top: auto;
 	background: var(--color-accent);
 	color: #fff;
 	box-shadow: 0 -2px 12px rgba(33,37,41,0.08);
@@ -43,6 +43,8 @@ main {
 	padding: 0.75rem 0; /* Reduced padding */
 	font-weight: 600;
 	font-size: 0.9rem; /* Smaller text */
+	position: relative; /* Ensure footer doesn't get hidden */
+	z-index: 10; /* Higher z-index to keep above content */
 }
 .header {
 	background: var(--color-accent);
@@ -85,5 +87,16 @@ main {
 	.footer {
 		padding: 0.5rem 0; /* Further reduce footer padding on mobile */
 		font-size: 0.8rem; /* Even smaller text on mobile */
+	}
+	main {
+		padding-bottom: 0; /* Remove bottom padding on mobile */
+		/* Calculate viewport height minus header and footer height to fit content */
+		height: calc(100% - 40px - 35px); /* Approximate header (40px) and footer (35px) heights */
+	}
+	body {
+		height: 100%; /* Use 100% instead of 100vh on mobile */
+		position: fixed; /* Prevent body from scrolling */
+		width: 100%;
+		overflow: hidden;
 	}
 }
