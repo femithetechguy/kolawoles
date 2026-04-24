@@ -2,6 +2,7 @@
 
 import { useEffect } from "react";
 import { AnimatePresence, motion } from "framer-motion";
+import skillsContent from "@/content/skills.json";
 
 type ModalType = "data" | "dev";
 
@@ -15,8 +16,11 @@ type InPageModalProps = {
   modal: {
     headline: string;
     description: string;
+    nav: string[];
     kpis: { label: string; value: string }[];
     features: string[];
+    modules: { title: string; body: string; badge: string }[];
+    milestones: { name: string; status: string }[];
   };
   onClose: () => void;
 };
@@ -31,6 +35,38 @@ export default function InPageModal({
   modal,
   onClose,
 }: InPageModalProps) {
+  const isMobileViewport =
+    typeof window !== "undefined" &&
+    window.matchMedia("(max-width: 900px)").matches;
+
+  const activeSkills = skillsContent.items.find((item) => {
+    if (!("label" in item)) return false;
+    if (type === "data") return item.label === "Data Analytics";
+    return item.label === "Software Development";
+  });
+
+  const marqueeSkillsDesktop =
+    activeSkills &&
+    "marqueeTopics" in activeSkills &&
+    Array.isArray(activeSkills.marqueeTopics)
+      ? activeSkills.marqueeTopics
+      : [];
+
+  const marqueeSkillsMobile =
+    activeSkills &&
+    "mobileMarqueeTopics" in activeSkills &&
+    Array.isArray(activeSkills.mobileMarqueeTopics)
+      ? activeSkills.mobileMarqueeTopics
+      : [];
+
+  const fallbackTopics =
+    activeSkills && "topics" in activeSkills && Array.isArray(activeSkills.topics)
+      ? activeSkills.topics.slice(0, 12)
+      : [];
+
+  const preferredSkills = isMobileViewport ? marqueeSkillsMobile : marqueeSkillsDesktop;
+  const skillsToRender = (preferredSkills.length > 0 ? preferredSkills : fallbackTopics).slice(0, 14);
+
   useEffect(() => {
     if (!isOpen) return;
 
@@ -74,51 +110,46 @@ export default function InPageModal({
             aria-label={`${title} modal`}
           >
             <header className="inpage-modal-header">
-              <div>
+              <div className="inpage-modal-title-wrap">
                 <p className="inpage-modal-label">{label}</p>
                 <h3 className="inpage-modal-title">{title}</h3>
               </div>
+
+              <div className="inpage-modal-skill-slot" aria-label={`${title} skills`}>
+                <div className="inpage-modal-skill-rail">
+                  <div className="inpage-modal-skill-track">
+                    {[...skillsToRender, ...skillsToRender].map((skill, index) => (
+                      <span key={`${skill}-${index}`} className="inpage-modal-skill-item">
+                        {skill}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </div>
+
               <div className="inpage-modal-actions">
-                <a href={url} target="_blank" rel="noreferrer" className="inpage-modal-link">
-                  Open in New Tab
-                </a>
-                <button type="button" onClick={onClose} className="inpage-modal-close">
-                  Close
+                <button
+                  type="button"
+                  onClick={onClose}
+                  className="inpage-modal-close"
+                  aria-label="Close modal"
+                  title="Close"
+                >
+                  <span aria-hidden="true">x</span>
                 </button>
               </div>
             </header>
 
             <div className="inpage-modal-content">
-              <p className="inpage-modal-status">Live in-page render</p>
-              <h4 className="inpage-modal-headline">{modal.headline}</h4>
-              <p className="inpage-modal-copy">{modal.description}</p>
-
-              <div className="inpage-modal-kpis">
-                {modal.kpis.map((kpi) => (
-                  <div key={kpi.label} className="inpage-modal-kpi-card">
-                    <span className="inpage-modal-kpi-value">{kpi.value}</span>
-                    <span className="inpage-modal-kpi-label">{kpi.label}</span>
-                  </div>
-                ))}
-              </div>
-
-              <ul className="inpage-modal-feature-list">
-                {modal.features.map((feature) => (
-                  <li key={feature}>{feature}</li>
-                ))}
-              </ul>
-
-              <div className="inpage-modal-stack">
-                {stack.map((item) => (
-                  <span key={item} className="inpage-modal-chip">
-                    {item}
-                  </span>
-                ))}
-              </div>
-
-              <p className="inpage-modal-note">
-                Target URL: {url}
-              </p>
+              <section className="inpage-modal-frame-shell">
+                <iframe
+                  src={url}
+                  title={`${title} live page`}
+                  className="inpage-modal-iframe"
+                  loading="eager"
+                  referrerPolicy="strict-origin-when-cross-origin"
+                />
+              </section>
             </div>
           </motion.section>
         </motion.div>
