@@ -19,8 +19,11 @@ type PortalType = Exclude<HoverState, "none">;
 type PortalModalContent = {
   headline: string;
   description: string;
+  nav: string[];
   kpis: { label: string; value: string }[];
   features: string[];
+  modules: { title: string; body: string; badge: string }[];
+  milestones: { name: string; status: string }[];
 };
 type ActivePortal = {
   type: PortalType;
@@ -196,8 +199,11 @@ export default function Home() {
           activePortal?.modal ?? {
             headline: "",
             description: "",
+            nav: [],
             kpis: [],
             features: [],
+            modules: [],
+            milestones: [],
           }
         }
         onClose={() => setActivePortal(null)}

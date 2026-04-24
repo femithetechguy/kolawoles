@@ -23,6 +23,7 @@
         "modal": {
           "headline": "Analytics Command Center",
           "description": "A focused hub for KPI storytelling, operational reporting, and decision intelligence.",
+          "nav": ["Overview", "Insights", "Pipelines", "Roadmap"],
           "kpis": [
             { "label": "Dashboards", "value": "24+" },
             { "label": "Data Sources", "value": "12" },
@@ -32,6 +33,23 @@
             "Executive scorecards and drill-down views",
             "Fabric-powered semantic models",
             "SQL + Python data quality workflows"
+          ],
+          "modules": [
+            {
+              "title": "Executive Storyboards",
+              "body": "Curated decision narratives that connect company goals to current performance at a glance.",
+              "badge": "Live"
+            },
+            {
+              "title": "Quality Monitor",
+              "body": "Automated checks for drift, freshness, and schema consistency before dashboards refresh.",
+              "badge": "Stable"
+            }
+          ],
+          "milestones": [
+            { "name": "Finance semantic model v2", "status": "In Progress" },
+            { "name": "Ops anomaly detection pack", "status": "Planned" },
+            { "name": "Self-serve BI playbook", "status": "Published" }
           ]
         }
       },
@@ -45,6 +63,7 @@
         "modal": {
           "headline": "Product Engineering Studio",
           "description": "A delivery-focused surface for shipping full-stack products with clean APIs and polished UX.",
+          "nav": ["Overview", "Architecture", "Delivery", "Roadmap"],
           "kpis": [
             { "label": "Active Projects", "value": "8" },
             { "label": "Deploy Cadence", "value": "Daily" },
@@ -54,6 +73,23 @@
             "Modern frontend architecture with Next.js",
             "API orchestration with NestJS and Node",
             "Design-driven components and platform tooling"
+          ],
+          "modules": [
+            {
+              "title": "Platform UI System",
+              "body": "Reusable components and interaction patterns for consistent product delivery across teams.",
+              "badge": "Live"
+            },
+            {
+              "title": "Release Pipeline",
+              "body": "Quality-gated CI/CD with typed contracts, automated checks, and fast rollback strategies.",
+              "badge": "Optimized"
+            }
+          ],
+          "milestones": [
+            { "name": "Design token migration", "status": "In Progress" },
+            { "name": "Service mesh onboarding", "status": "Planned" },
+            { "name": "Observability baseline", "status": "Published" }
           ]
         }
       }

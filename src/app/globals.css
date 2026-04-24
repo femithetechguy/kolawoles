@@ -128,13 +128,17 @@ a {
   z-index: 120;
   display: grid;
   place-items: center;
-  padding: 1rem;
+  padding: 0;
   background: rgba(3, 5, 12, 0.7);
   backdrop-filter: blur(8px);
 }
 
 .inpage-modal-shell {
-  width: min(860px, 100%);
+  width: min(80vw, 1360px);
+  height: min(80vh, 920px);
+  max-height: 80vh;
+  display: flex;
+  flex-direction: column;
   border-radius: 14px;
   border: 1px solid rgba(240, 237, 230, 0.16);
   background: linear-gradient(180deg, rgba(10, 14, 24, 0.96), rgba(8, 10, 16, 0.98));
@@ -163,8 +167,9 @@ a {
   justify-content: space-between;
   gap: 1rem;
   align-items: center;
-  padding: 1.1rem 1.2rem;
+  padding: 1rem 1.2rem;
   border-bottom: 1px solid rgba(240, 237, 230, 0.1);
+  flex-shrink: 0;
 }
 
 .inpage-modal-label {
@@ -172,6 +177,10 @@ a {
   text-transform: uppercase;
   letter-spacing: 0.18em;
   color: rgba(240, 237, 230, 0.54);
+}
+
+.inpage-modal-title-wrap {
+  min-width: 160px;
 }
 
 .inpage-modal-title {
@@ -187,25 +196,202 @@ a {
   gap: 0.6rem;
 }
 
-.inpage-modal-link,
+.inpage-modal-skill-slot {
+  flex: 1;
+  min-width: 0;
+  align-self: center;
+}
+
+.inpage-modal-skill-rail {
+  width: 100%;
+  height: 34px;
+  border-radius: 8px;
+  border: 1px solid rgba(240, 237, 230, 0.24);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  background: rgba(240, 237, 230, 0.03);
+  position: relative;
+}
+
+.is-data .inpage-modal-skill-rail {
+  border-color: rgba(91, 156, 246, 0.5);
+  box-shadow:
+    0 0 16px rgba(26, 108, 245, 0.16),
+    0 0 2px rgba(91, 156, 246, 0.45),
+    0 0 14px rgba(26, 108, 245, 0.18) inset;
+  animation: marquee-neon-data 2.8s ease-in-out infinite;
+}
+
+.is-dev .inpage-modal-skill-rail {
+  border-color: rgba(240, 144, 112, 0.5);
+  box-shadow:
+    0 0 16px rgba(240, 112, 64, 0.14),
+    0 0 2px rgba(240, 144, 112, 0.4),
+    0 0 14px rgba(240, 112, 64, 0.16) inset;
+  animation: marquee-neon-dev 2.8s ease-in-out infinite;
+}
+
+.inpage-modal-skill-track {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  white-space: nowrap;
+  width: max-content;
+  animation: inpage-skill-scroll 96s linear infinite;
+}
+
+.inpage-modal-skill-item {
+  position: relative;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.13em;
+  color: rgba(240, 237, 230, 0.88);
+  text-shadow: 0 0 6px rgba(240, 237, 230, 0.2);
+  padding: 0 0.95rem;
+}
+
+.inpage-modal-skill-item::after {
+  content: "•";
+  position: absolute;
+  right: -2px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: rgba(240, 237, 230, 0.48);
+}
+
+.is-data .inpage-modal-skill-item::after {
+  color: rgba(115, 178, 255, 0.74);
+  text-shadow: 0 0 8px rgba(26, 108, 245, 0.5);
+}
+
+.is-dev .inpage-modal-skill-item::after {
+  color: rgba(255, 182, 150, 0.72);
+  text-shadow: 0 0 8px rgba(240, 112, 64, 0.48);
+}
+
+@keyframes inpage-skill-scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes marquee-neon-data {
+  0%,
+  100% {
+    box-shadow:
+      0 0 14px rgba(26, 108, 245, 0.14),
+      0 0 2px rgba(91, 156, 246, 0.4),
+      0 0 14px rgba(26, 108, 245, 0.18) inset;
+  }
+  50% {
+    box-shadow:
+      0 0 24px rgba(26, 108, 245, 0.24),
+      0 0 3px rgba(91, 156, 246, 0.58),
+      0 0 18px rgba(26, 108, 245, 0.22) inset;
+  }
+}
+
+@keyframes marquee-neon-dev {
+  0%,
+  100% {
+    box-shadow:
+      0 0 14px rgba(240, 112, 64, 0.12),
+      0 0 2px rgba(240, 144, 112, 0.36),
+      0 0 14px rgba(240, 112, 64, 0.16) inset;
+  }
+  50% {
+    box-shadow:
+      0 0 22px rgba(240, 112, 64, 0.2),
+      0 0 3px rgba(240, 144, 112, 0.52),
+      0 0 18px rgba(240, 112, 64, 0.2) inset;
+  }
+}
+
 .inpage-modal-close {
   border: 1px solid rgba(240, 237, 230, 0.22);
-  border-radius: 8px;
-  padding: 0.5rem 0.72rem;
-  font-size: 11px;
-  letter-spacing: 0.08em;
+  border-radius: 9px;
+  width: 34px;
+  height: 34px;
+  display: grid;
+  place-items: center;
+  padding: 0;
+  font-size: 17px;
+  line-height: 1;
+  text-transform: uppercase;
   color: rgba(240, 237, 230, 0.86);
   background: rgba(240, 237, 230, 0.04);
   cursor: pointer;
 }
 
-.inpage-modal-link:hover,
 .inpage-modal-close:hover {
   background: rgba(240, 237, 230, 0.11);
 }
 
 .inpage-modal-content {
-  padding: 1.25rem;
+  padding: 0.8rem 1rem 1rem;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-height: 0;
+}
+
+.inpage-modal-frame-shell {
+  border: 1px solid rgba(240, 237, 230, 0.12);
+  border-radius: 10px;
+  overflow: hidden;
+  background: rgba(5, 7, 14, 0.9);
+  flex: 1;
+  min-height: 0;
+}
+
+.inpage-modal-iframe {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  background: #02040b;
+}
+
+.inpage-modal-web-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.8rem;
+  margin-bottom: 0.75rem;
+}
+
+.inpage-modal-tabs {
+  display: flex;
+  gap: 0.4rem;
+  flex-wrap: wrap;
+}
+
+.inpage-modal-tab {
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  border: 1px solid rgba(240, 237, 230, 0.14);
+  background: rgba(240, 237, 230, 0.04);
+  color: rgba(240, 237, 230, 0.58);
+  border-radius: 999px;
+  padding: 0.3rem 0.56rem;
+}
+
+.inpage-modal-tab.is-active {
+  color: rgba(240, 237, 230, 0.9);
+  background: rgba(240, 237, 230, 0.1);
+}
+
+.inpage-modal-hero {
+  border: 1px solid rgba(240, 237, 230, 0.1);
+  border-radius: 12px;
+  padding: 1rem;
+  background: linear-gradient(145deg, rgba(240, 237, 230, 0.05), rgba(240, 237, 230, 0.01));
 }
 
 .inpage-modal-headline {
@@ -227,6 +413,10 @@ a {
   background: rgba(240, 237, 230, 0.06);
 }
 
+.inpage-modal-web-header .inpage-modal-status {
+  margin-bottom: 0;
+}
+
 .is-data .inpage-modal-status {
   color: rgba(160, 202, 255, 0.95);
   border-color: rgba(91, 156, 246, 0.36);
@@ -246,11 +436,60 @@ a {
   margin-top: 0.55rem;
 }
 
+.inpage-modal-page-grid {
+  margin-top: 0.9rem;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.8rem;
+}
+
+.inpage-modal-panel {
+  border-radius: 12px;
+  border: 1px solid rgba(240, 237, 230, 0.12);
+  background: rgba(240, 237, 230, 0.03);
+  padding: 0.85rem;
+}
+
+.inpage-modal-panel-muted {
+  background: rgba(240, 237, 230, 0.02);
+}
+
+.inpage-modal-panel-title {
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(240, 237, 230, 0.62);
+}
+
+.inpage-modal-panel-copy {
+  margin-top: 0.55rem;
+  color: rgba(240, 237, 230, 0.76);
+  line-height: 1.6;
+}
+
+.inpage-modal-module-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.inpage-modal-module-badge {
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  border-radius: 999px;
+  padding: 0.2rem 0.52rem;
+  border: 1px solid rgba(240, 237, 230, 0.22);
+  background: rgba(240, 237, 230, 0.08);
+  color: rgba(240, 237, 230, 0.84);
+}
+
 .inpage-modal-kpis {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 0.65rem;
-  margin-top: 1rem;
+  margin-top: 0.7rem;
 }
 
 .inpage-modal-kpi-card {
@@ -278,7 +517,7 @@ a {
 }
 
 .inpage-modal-feature-list {
-  margin-top: 1rem;
+  margin-top: 0.7rem;
   list-style: none;
   display: grid;
   gap: 0.4rem;
@@ -314,7 +553,43 @@ a {
   display: flex;
   gap: 0.45rem;
   flex-wrap: wrap;
-  margin-top: 1rem;
+  margin-top: 0.7rem;
+}
+
+.inpage-modal-tech {
+  margin-top: 0.9rem;
+  border-radius: 12px;
+  border: 1px solid rgba(240, 237, 230, 0.1);
+  padding: 0.85rem;
+  background: rgba(240, 237, 230, 0.02);
+}
+
+.inpage-modal-milestones {
+  margin-top: 0.65rem;
+  display: grid;
+  gap: 0.42rem;
+}
+
+.inpage-modal-milestone-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.6rem;
+  align-items: center;
+  padding: 0.45rem 0.55rem;
+  border-radius: 8px;
+  border: 1px solid rgba(240, 237, 230, 0.1);
+  background: rgba(240, 237, 230, 0.03);
+  color: rgba(240, 237, 230, 0.82);
+}
+
+.inpage-modal-milestone-status {
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  border-radius: 999px;
+  border: 1px solid rgba(240, 237, 230, 0.18);
+  padding: 0.2rem 0.5rem;
+  color: rgba(240, 237, 230, 0.72);
 }
 
 .inpage-modal-chip {
@@ -393,8 +668,52 @@ a {
   }
 
   .inpage-modal-header {
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 0.55rem;
+  }
+
+  .inpage-modal-actions {
+    margin-left: auto;
+  }
+
+  .inpage-modal-title-wrap {
+    min-width: 96px;
+  }
+
+  .inpage-modal-skill-rail {
+    height: 32px;
+  }
+
+  .inpage-modal-skill-item {
+    font-size: 9px;
+    padding: 0 0.7rem;
+    letter-spacing: 0.1em;
+  }
+
+  .inpage-modal-skill-track {
+    animation-duration: 84s;
+  }
+
+  .inpage-modal-shell {
+    width: min(96vw, 960px);
+    height: 92dvh;
+    max-height: 92dvh;
+    border-radius: 12px;
+  }
+
+  .inpage-modal-content {
+    padding: 0.65rem;
+  }
+
+  .inpage-modal-web-header {
     flex-direction: column;
     align-items: flex-start;
+  }
+
+  .inpage-modal-page-grid {
+    grid-template-columns: minmax(0, 1fr);
   }
 
   .inpage-modal-kpis {

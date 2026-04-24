@@ -7,7 +7,7 @@ This is a single-screen gateway landing page for kolawoles.com with two destinat
 - data.kolawoles.com (Analytics and BI)
 - appdev.kolawoles.com (Engineering)
 
-The homepage now opens a native in-page modal experience for each track (no iframe), while still offering an Open in New Tab action.
+The homepage now opens each destination in a centered in-page modal and renders the live destination URL directly inside the modal viewport.
 
 ---
 
@@ -60,23 +60,36 @@ The homepage now opens a native in-page modal experience for each track (no ifra
 - Ensured cards center correctly on smaller screens.
 - Improved footer readability and placement on mobile.
 
-### 6) In-Page Modal Experience (No iframe)
+### 6) In-Page Modal Experience (Live URL Rendering)
 - Portal click now opens a themed modal panel in-page.
 - Added src/components/InPageModal.tsx.
-- Modal now renders actual native sections (not external embedding):
-	- Headline
-	- Description
-	- KPI cards
-	- Feature list
-	- Stack chips
-	- Target URL text
+- Modal now renders live destination pages directly from:
+	- https://data.kolawoles.com
+	- https://appdev.kolawoles.com
 - Added Escape-to-close and backdrop-click close.
 - Added body scroll lock while modal is open.
-- Modal content is configured per portal in src/content/siteContent.json.
+- Modal close control updated to top-right X icon.
+- Modal sizing tuned for centered viewport rendering on desktop and mobile.
+- Resolved dual-scroll behavior so the embedded page handles scrolling cleanly.
 
-### 7) Validation
+### 7) Dynamic Skills System
+- Added src/content/skills.json as reusable structured skills data.
+- Skills data now includes:
+	- marqueeTopics (desktop ticker)
+	- mobileMarqueeTopics (short mobile ticker)
+	- capabilityGroups (future grouped rendering)
+	- topics (detailed full list)
+- Modal header now shows animated skills ticker based on active portal type:
+	- Data modal -> Data Analytics skills
+	- App Dev modal -> Software Development skills
+- Added subtle theme-aware neon treatment to skills rail:
+	- Blue neon for Data
+	- Orange neon for App Dev
+- Tuned marquee speed for readability, with mobile-specific timing.
+
+### 8) Validation
 - Build has been verified successfully with npm run build after the latest feature set.
-- A transient Next build cache/chunk issue appeared once and passed on retry.
+- Intermittent Next.js dev cache/chunk 404 behavior was observed and resolved via clean restart workflow.
 
 ---
 
@@ -84,15 +97,16 @@ The homepage now opens a native in-page modal experience for each track (no ifra
 
 - src/app/page.tsx: homepage orchestration, portal state, and modal trigger flow.
 - src/components/Portal.tsx: beveled cards, semantic icons, and click-to-modal behavior.
-- src/components/InPageModal.tsx: native in-page modal rendering.
+- src/components/InPageModal.tsx: live URL modal rendering + dynamic skills ticker.
 - src/content/siteContent.json: central content and per-portal modal content.
+- src/content/skills.json: curated and grouped skills datasets for modal ticker/future sections.
 - src/app/globals.css: theme tokens, responsive tuning, portal and modal visuals.
 
 ---
 
 ## Remaining Work / Next Steps
 
-- [ ] Replace placeholder KPI/feature values with real data or API-driven content.
+- [ ] Add graceful fallback UX if external pages block iframe embedding via security headers.
 - [ ] Add stronger keyboard focus management (focus trap and initial focus) in modal.
 - [ ] Add event analytics for portal clicks and modal interactions.
 - [ ] Optional performance pass: defer heavy background effects on low-power/mobile devices.

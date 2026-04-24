@@ -1,0 +1,232 @@
+{
+  "items": [
+    {
+      "icon": "bi-bar-chart",
+      "label": "Data Analytics",
+      "marqueeTopics": [
+        "Microsoft Fabric",
+        "Power BI",
+        "DAX Time Intelligence",
+        "Power Query (M)",
+        "Dataflows Gen2",
+        "Lakehouse",
+        "OneLake",
+        "Fabric Warehouse",
+        "Azure Data Factory",
+        "Databricks (PySpark)",
+        "Dimensional Modeling",
+        "RLS / OLS"
+      ],
+      "mobileMarqueeTopics": [
+        "Microsoft Fabric",
+        "Power BI",
+        "DAX",
+        "Power Query",
+        "Lakehouse",
+        "Dataflows Gen2",
+        "ADF",
+        "Databricks"
+      ],
+      "capabilityGroups": [
+        {
+          "title": "Fabric & BI Platforms",
+          "topics": [
+            "Power BI Desktop",
+            "Power BI Service",
+            "Power BI Copilot",
+            "Power BI Deployment Pipelines",
+            "OneLake",
+            "Lakehouse",
+            "Dataflows Gen2",
+            "Fabric Pipelines",
+            "Fabric Warehouse",
+            "Paginated Reports",
+            "SSRS",
+            "Cognos Analytics"
+          ]
+        },
+        {
+          "title": "Data Engineering",
+          "topics": [
+            "Azure Data Factory",
+            "Azure Synapse",
+            "Databricks (PySpark)",
+            "SSIS",
+            "TDV Studio"
+          ]
+        },
+        {
+          "title": "Modeling & Governance",
+          "topics": [
+            "DAX (Advanced Measures)",
+            "DAX Time Intelligence",
+            "Power Query (M)",
+            "Dimensional Modeling",
+            "Star Schema",
+            "Snowflake Schema",
+            "Role-Playing Dimensions",
+            "Row-Level Security (RLS)",
+            "Object-Level Security (OLS)",
+            "Sensitivity Labels",
+            "On-Prem Gateway",
+            "Data Privacy Levels"
+          ]
+        }
+      ],
+      "topics": [
+        "Microsoft Fabric",
+        "Power BI Desktop",
+        "Power BI Service",
+        "Power BI Copilot",
+        "Power BI Deployment Pipelines",
+        "OneLake",
+        "Lakehouse",
+        "Dataflows Gen2",
+        "Fabric Pipelines",
+        "Fabric Warehouse",
+        "Paginated Reports",
+        "SSRS",
+        "Cognos Analytics",
+        "Azure Data Factory",
+        "Azure Synapse",
+        "Databricks (PySpark)",
+        "SSIS",
+        "TDV Studio",
+        "Snowflake",
+        "SQL Server 2008 R2",
+        "SQL Server 2012",
+        "SQL Server 2016",
+        "SQL Server 2017",
+        "PostgreSQL",
+        "Oracle 8i",
+        "Oracle 9i",
+        "Oracle 10g",
+        "OLTP Architectures",
+        "OLAP Architectures",
+        "DAX (Advanced Measures)",
+        "DAX Time Intelligence",
+        "Power Query (M)",
+        "Dimensional Modeling",
+        "Star Schema",
+        "Snowflake Schema",
+        "Role-Playing Dimensions",
+        "Row-Level Security (RLS)",
+        "Object-Level Security (OLS)",
+        "Sensitivity Labels",
+        "On-Prem Gateway",
+        "Data Privacy Levels"
+      ]
+    },
+    { "type": "divider" },
+    {
+      "icon": "bi-code-slash",
+      "label": "Software Development",
+      "marqueeTopics": [
+        "Full Stack Development",
+        "TypeScript",
+        "React",
+        "Node.js",
+        "REST APIs",
+        "Microservices",
+        "CI/CD",
+        "Azure DevOps",
+        "Jenkins",
+        "Cloud Architecture",
+        "Testing & QA",
+        "Security & Authentication"
+      ],
+      "mobileMarqueeTopics": [
+        "Full Stack",
+        "TypeScript",
+        "React",
+        "Node.js",
+        "REST APIs",
+        "CI/CD",
+        "Cloud",
+        "Security"
+      ],
+      "capabilityGroups": [
+        {
+          "title": "Core Development",
+          "topics": [
+            "Frontend Development",
+            "Backend Development",
+            "Full Stack Development",
+            "Web Development",
+            "APIs & Microservices"
+          ]
+        },
+        {
+          "title": "Languages & Frameworks",
+          "topics": [
+            "JavaScript",
+            "TypeScript",
+            "React",
+            "Node.js",
+            "Python",
+            "Java",
+            "Spring Boot",
+            "C#",
+            ".NET"
+          ]
+        },
+        {
+          "title": "Delivery & Operations",
+          "topics": [
+            "Git",
+            "CI/CD",
+            "Azure DevOps",
+            "Jenkins",
+            "Agile",
+            "Jira",
+            "Confluence",
+            "Performance Optimization",
+            "Security & Authentication"
+          ]
+        }
+      ],
+      "topics": [
+        "Frontend Development",
+        "Backend Development",
+        "Full Stack Development",
+        "Web Development",
+        "APIs & Microservices",
+        "DevOps & CI/CD",
+        "Cloud Computing",
+        "Database Design",
+        "Version Control (Git)",
+        "Testing & QA",
+        "SQL",
+        "T-SQL",
+        "PL/SQL",
+        "Python",
+        "pandas",
+        "scikit-learn",
+        "PySpark",
+        "JavaScript",
+        "HTML/CSS",
+        "Git",
+        "CI/CD",
+        "Azure DevOps",
+        "Jenkins",
+        "Agile",
+        "Jira",
+        "Confluence",
+        "SSMS",
+        "SQL Agent",
+        "Query Analyzer",
+        "API Documentation",
+        "Integration & Automation",
+        "Performance Optimization",
+        "Security & Authentication",
+        "TypeScript",
+        "React",
+        "Node.js",
+        "Java",
+        "Spring Boot",
+        "C#",
+        ".NET"
+      ]
+    }
+  ]
+}
