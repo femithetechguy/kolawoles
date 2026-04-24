@@ -1,0 +1,63 @@
+{
+  "site": {
+    "title": "Kolawoles",
+    "description": "Where data meets product. Adefemi Kolawole — BI Engineer & Full-Stack Developer.",
+    "url": "https://kolawoles.com",
+    "siteName": "Kolawoles"
+  },
+  "home": {
+    "eyebrow": "Adefemi Kolawole",
+    "name": {
+      "primary": "KOLA",
+      "secondary": "WOLES"
+    },
+    "tagline": "where data meets product",
+    "portals": [
+      {
+        "type": "data",
+        "href": "https://data.kolawoles.com",
+        "label": "Analytics & BI",
+        "title": "Data",
+        "stack": ["Power BI", "Fabric", "Python", "SQL", "DAX"],
+        "delay": 0.35,
+        "modal": {
+          "headline": "Analytics Command Center",
+          "description": "A focused hub for KPI storytelling, operational reporting, and decision intelligence.",
+          "kpis": [
+            { "label": "Dashboards", "value": "24+" },
+            { "label": "Data Sources", "value": "12" },
+            { "label": "Refresh SLA", "value": "15m" }
+          ],
+          "features": [
+            "Executive scorecards and drill-down views",
+            "Fabric-powered semantic models",
+            "SQL + Python data quality workflows"
+          ]
+        }
+      },
+      {
+        "type": "dev",
+        "href": "https://appdev.kolawoles.com",
+        "label": "Engineering",
+        "title": "App Dev",
+        "stack": ["Next.js", "NestJS", "React", "Node", "TypeScript"],
+        "delay": 0.45,
+        "modal": {
+          "headline": "Product Engineering Studio",
+          "description": "A delivery-focused surface for shipping full-stack products with clean APIs and polished UX.",
+          "kpis": [
+            { "label": "Active Projects", "value": "8" },
+            { "label": "Deploy Cadence", "value": "Daily" },
+            { "label": "Core Stack", "value": "TS" }
+          ],
+          "features": [
+            "Modern frontend architecture with Next.js",
+            "API orchestration with NestJS and Node",
+            "Design-driven components and platform tooling"
+          ]
+        }
+      }
+    ],
+    "footerText": "Kolawoles.com. | FTTG Solutions"
+  }
+}
