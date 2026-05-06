@@ -21,6 +21,9 @@ const dmSans = DM_Sans({
 export const metadata: Metadata = {
   title: siteContent.site.title,
   description: siteContent.site.description,
+  icons: {
+    icon: "/favicon.svg",
+  },
   openGraph: {
     title: siteContent.site.title,
     description: siteContent.home.tagline,

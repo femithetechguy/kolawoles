@@ -67,6 +67,28 @@ export default function Home() {
       <AmbientOrbs hoverState={hoverState} />
       <Background hoverState={hoverState} />
 
+      {/* Logo — top-left brand anchor */}
+      <motion.a
+        href="/"
+        {...fadeUp(0)}
+        style={{
+          position: "absolute",
+          top: "1.5rem",
+          left: "1.75rem",
+          zIndex: 20,
+          display: "block",
+          lineHeight: 0,
+          opacity: 0.82,
+        }}
+      >
+        <img
+          src="/logo.svg"
+          alt="Kolawoles"
+          style={{ width: "148px", height: "auto", display: "block" }}
+          draggable={false}
+        />
+      </motion.a>
+
       {/* Content */}
       <div
         className="home-content"
@@ -166,12 +188,11 @@ export default function Home() {
         style={{
           position: "absolute",
           bottom: "2rem",
-          left: 0,
-          right: 0,
+          left: "1.75rem",
+          right: "1.75rem",
           display: "flex",
-          justifyContent: "center",
+          justifyContent: "space-between",
           alignItems: "center",
-          gap: "0",
           zIndex: 10,
         }}
       >
@@ -180,11 +201,22 @@ export default function Home() {
           style={{
             fontSize: "11px",
             letterSpacing: "0.1em",
-            color: "rgba(240,237,230,0.2)",
+            color: "rgba(240,237,230,0.28)",
             fontWeight: 300,
           }}
         >
-          {homeContent.footerText}
+          kolawoles.com
+        </span>
+        <span
+          className="home-footer-text"
+          style={{
+            fontSize: "11px",
+            letterSpacing: "0.1em",
+            color: "rgba(240,237,230,0.28)",
+            fontWeight: 300,
+          }}
+        >
+          FTTG Solutions
         </span>
       </motion.footer>
 
