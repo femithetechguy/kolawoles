@@ -87,7 +87,15 @@ The homepage now opens each destination in a centered in-page modal and renders 
 	- Orange neon for App Dev
 - Tuned marquee speed for readability, with mobile-specific timing.
 
-### 8) Validation
+### 8) Branding & Identity
+- Created public/logo.svg — horizontal lockup with K mark (blue top arm / orange bottom arm) + KOLAWOLES wordmark.
+- Created public/favicon.svg — 32×32 K mark icon with dark rounded-square background and dual-gradient arms.
+- SVG favicon wired up via metadata icons in src/app/layout.tsx.
+- Logo placed top-left on page as a fixed brand anchor (148px wide, 0.82 opacity).
+- Footer redesigned: split left/right with kolawoles.com anchoring left and FTTG Solutions anchoring right.
+- Footer text opacity bumped from 0.2 → 0.28 for legibility.
+
+### 9) Validation
 - Build has been verified successfully with npm run build after the latest feature set.
 - Intermittent Next.js dev cache/chunk 404 behavior was observed and resolved via clean restart workflow.
 
@@ -110,5 +118,5 @@ The homepage now opens each destination in a centered in-page modal and renders 
 - [ ] Add stronger keyboard focus management (focus trap and initial focus) in modal.
 - [ ] Add event analytics for portal clicks and modal interactions.
 - [ ] Optional performance pass: defer heavy background effects on low-power/mobile devices.
-- [ ] Add favicon and social preview assets (favicon.ico, apple-touch-icon.png, og-image.png).
+- [ ] Add social preview assets (apple-touch-icon.png, og-image.png).
 - [ ] Final cross-device QA before production launch.
